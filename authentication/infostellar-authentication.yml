@@ -1,0 +1,29 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/infostellarinc/stellarstation-api#authentication
+docs: https://github.com/infostellarinc/stellarstation-api#authentication
+summary:
+  types: [jwt-bearer]
+  transport: grpc
+  token_kind: service-account-jwt
+  audience: https://api.stellarstation.com
+schemes:
+- name: ServiceAccountJWT
+  type: bearer
+  scheme: jwt
+  description: >-
+    Authentication to the StellarStation gRPC API uses JWT bearer tokens signed
+    with a service-account private key downloaded from the StellarStation
+    Console. Credentials are registered as gRPC call credentials on the channel
+    (e.g. ServiceAccountJwtAccessCredentials in Java, google-auth JWT
+    OnDemandCredentials in Python). The token audience is
+    https://api.stellarstation.com. Keys revoked in the Console stop working
+    immediately.
+  audience: https://api.stellarstation.com
+  key_source: StellarStation Console (downloaded private key JSON)
+  sources: [grpc/infostellar-stellarstation.proto, README]
+notes: >-
+  gRPC over TLS on api.stellarstation.com:443. No API-key or OAuth2
+  authorization-code flow is documented; the only mechanism is service-account
+  JWT bearer credentials. There is no OAuth scope surface, so no scopes/
+  artifact applies.
