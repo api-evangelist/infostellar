@@ -1,0 +1,32 @@
+# Infostellar
+
+> Infostellar operates StellarStation, a cloud ground-station-as-a-service (GSaaS) platform that aggregates partner and operator antennas into a shared global network. Satellite operators use its public gRPC API to discover and reserve upcoming passes, schedule and cancel plans, manage TLE orbital data, and stream live telemetry and commands to and from spacecraft.
+
+## APIs
+
+- [StellarStation API (gRPC)](https://github.com/infostellarinc/stellarstation-api): Public Protocol Buffers / gRPC API at api.stellarstation.com:443. Two services — StellarStationService (satellite operators) and GroundStationService (antenna operators).
+
+## Specs
+
+- [stellarstation.proto](grpc/infostellar-stellarstation.proto): StellarStationService — ListPlans, CancelPlan, ListUpcomingAvailablePasses, OpenSatelliteStream, ReservePass, AddTle, GetTle, SetTleSource, SetPlanMetadata.
+- [groundstation.proto](grpc/infostellar-groundstation.proto): GroundStationService — AddUnavailabilityWindow, DeleteUnavailabilityWindow, ListUnavailabilityWindows, ListPlans, CancelPlan, GetCurrentPlan, OpenGroundStationStream.
+- [orbit.proto](grpc/infostellar-orbit.proto), [radio.proto](grpc/infostellar-radio.proto), [antenna.proto](grpc/infostellar-antenna.proto), [monitoring.proto](grpc/infostellar-monitoring.proto), [transport.proto](grpc/infostellar-transport.proto), [common.proto](grpc/infostellar-common.proto): supporting definitions.
+
+## Artifacts
+
+- [Authentication](authentication/infostellar-authentication.yml): service-account JWT bearer credentials.
+- [Conventions](conventions/infostellar-conventions.yml): gRPC transport, streaming, time-window scheduling, error model.
+- [Data model](data-model/infostellar-data-model.yml): Satellite, Pass, Plan, Tle, GroundStation entities.
+- [Error model](errors/infostellar-problem-types.yml): gRPC status codes.
+- [Packages / SDKs](packages/infostellar-packages.yml): Java, Python, Go, Node.js client stubs.
+- [MCP tools (candidate)](mcp/infostellar-mcp.yml): derived tool list over the gRPC operations.
+- [Agent Skills](skills/_index.yml): schedule-and-stream a pass; manage TLE data.
+- [Changelog](changelog/infostellar-changelog.yml) / [Lifecycle](lifecycle/infostellar-lifecycle.yml): semver, tagged releases v0.6.0–v0.15.0.
+
+## Docs
+
+- [README / usage guide](https://github.com/infostellarinc/stellarstation-api#readme)
+- [Java client docs (javadoc.io)](https://javadoc.io/doc/com.stellarstation.api/stellarstation-api/)
+- [Go client (go-stellarstation)](https://github.com/infostellarinc/go-stellarstation)
+- [StellarStation product](https://www.stellarstation.com)
+- [Company site](https://www.infostellar.net)

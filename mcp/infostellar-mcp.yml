@@ -1,0 +1,64 @@
+generated: '2026-07-19'
+method: derived
+status: candidate
+source: grpc/infostellar-stellarstation.proto
+server:
+  name: infostellar-stellarstation
+  transport: stdio
+  url: null
+notes: >-
+  No official hosted MCP server was found for StellarStation. This is a
+  candidate tool list derived one-to-one from the gRPC rpc methods of
+  StellarStationService and GroundStationService, for a future MCP wrapper over
+  the gRPC API. Streaming rpcs (OpenSatelliteStream, OpenGroundStationStream)
+  are long-lived bidirectional streams and are noted as non-trivial to model as
+  single MCP tool calls.
+tools:
+- name: list_plans
+  description: List scheduled passes (plans) for a satellite within a time window.
+  source_operation: grpc/infostellar-stellarstation.proto#ListPlans
+- name: cancel_plan
+  description: Cancel a previously reserved upcoming plan.
+  source_operation: grpc/infostellar-stellarstation.proto#CancelPlan
+- name: list_upcoming_available_passes
+  description: List schedulable passes within the next 14 days.
+  source_operation: grpc/infostellar-stellarstation.proto#ListUpcomingAvailablePasses
+- name: reserve_pass
+  description: Reserve a pass, turning it into a scheduled plan.
+  source_operation: grpc/infostellar-stellarstation.proto#ReservePass
+- name: add_tle
+  description: Add TLE orbital element data for a satellite.
+  source_operation: grpc/infostellar-stellarstation.proto#AddTle
+- name: get_tle
+  description: Retrieve current TLE orbital element data for a satellite.
+  source_operation: grpc/infostellar-stellarstation.proto#GetTle
+- name: set_tle_source
+  description: Configure whether orbital data comes from NORAD or manual entry.
+  source_operation: grpc/infostellar-stellarstation.proto#SetTleSource
+- name: set_plan_metadata
+  description: Associate custom key-value metadata with a plan.
+  source_operation: grpc/infostellar-stellarstation.proto#SetPlanMetadata
+- name: open_satellite_stream
+  description: Open a bidirectional telemetry/command stream for a satellite (streaming).
+  source_operation: grpc/infostellar-stellarstation.proto#OpenSatelliteStream
+- name: gs_add_unavailability_window
+  description: Add a ground-station unavailability window.
+  source_operation: grpc/infostellar-groundstation.proto#AddUnavailabilityWindow
+- name: gs_delete_unavailability_window
+  description: Delete a ground-station unavailability window.
+  source_operation: grpc/infostellar-groundstation.proto#DeleteUnavailabilityWindow
+- name: gs_list_unavailability_windows
+  description: List ground-station unavailability windows.
+  source_operation: grpc/infostellar-groundstation.proto#ListUnavailabilityWindows
+- name: gs_list_plans
+  description: List plans scheduled on a ground station.
+  source_operation: grpc/infostellar-groundstation.proto#ListPlans
+- name: gs_cancel_plan
+  description: Cancel a plan from the ground-station side.
+  source_operation: grpc/infostellar-groundstation.proto#CancelPlan
+- name: gs_get_current_plan
+  description: Get the currently executing plan for a ground station.
+  source_operation: grpc/infostellar-groundstation.proto#GetCurrentPlan
+- name: gs_open_ground_station_stream
+  description: Open a bidirectional ground-station stream (streaming).
+  source_operation: grpc/infostellar-groundstation.proto#OpenGroundStationStream

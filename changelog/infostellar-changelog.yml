@@ -1,0 +1,38 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/infostellarinc/stellarstation-api/releases
+scheme: semver
+current_version: v0.15.0
+url: https://github.com/infostellarinc/stellarstation-api/releases
+entries:
+- version: v0.15.0
+  date: '2025-05-01'
+  breaking: false
+  highlights:
+    - Updated services URL in README.
+    - Added a Rust streaming client example.
+    - Increased gRPC max message size to 10MB in examples.
+- version: 0.14.0
+  date: '2023-11-13'
+  breaking: false
+  highlights:
+    - Added plan metadata to the ground-station proto (STS-1209).
+    - Updated getting-started docs and blocking example.
+- version: 0.13.0
+  date: '2022-11-28'
+  breaking: false
+  highlights:
+    - Added ground_station_id to SatelliteStreamRequest and satellite_id/ground_station_id to ReceiveTelemetryResponse (STS-636).
+    - Removed C++ stub generation (STS-732).
+    - Updated Python examples for satellite operators.
+- version: 0.12.0
+  date: '2022-06-08'
+  breaking: false
+  highlights:
+    - Added ability to set plan priority from the API.
+- version: 0.11.0
+  date: '2021-07-14'
+  breaking: false
+  highlights:
+    - Added plan id to OpenSatelliteStream request.
+    - Published stubs to Maven Central.

@@ -1,0 +1,58 @@
+generated: '2026-07-19'
+method: derived
+source: grpc/infostellar-stellarstation.proto
+entities:
+- name: Satellite
+  key: satellite_id
+  notes: A spacecraft operated on the platform; identified by satellite_id.
+- name: GroundStation
+  key: ground_station_id
+  notes: A partner/operator antenna site with location and organization.
+- name: Pass
+  notes: A schedulable window (aos_time..los_time) when a satellite is visible to a ground station.
+  fields: [aos_time, los_time, max_elevation_degrees, ground_station_id, channel_set_token]
+- name: Plan
+  key: id
+  notes: A reserved pass with an execution status.
+  fields: [id, satellite_id, status]
+  enums:
+    status: [RESERVED, EXECUTING, SUCCEEDED, FAILED, CANCELED]
+- name: Tle
+  notes: Two-line element orbital data for a satellite; source NORAD or MANUAL.
+- name: ChannelSet
+  notes: RF channel configuration (transmitter/receiver) associated with a pass.
+- name: TelemetryMetadata
+  notes: Framing/type metadata (RAW/DEMODULATED/DECODED) for streamed telemetry.
+- name: PlanMetadata
+  notes: Custom key-value (map<string, list<string>>) metadata attached to a plan.
+- name: UnavailabilityWindow
+  notes: A time window during which a ground station is unavailable (GroundStationService).
+relationships:
+- from: Plan
+  to: Satellite
+  type: belongs_to
+  via: satellite_id
+- from: Plan
+  to: Pass
+  type: has_one
+  via: reservation (a reserved Pass becomes a Plan)
+- from: Pass
+  to: GroundStation
+  type: belongs_to
+  via: ground_station_id
+- from: Tle
+  to: Satellite
+  type: belongs_to
+  via: satellite_id
+- from: PlanMetadata
+  to: Plan
+  type: belongs_to
+  via: plan_id
+- from: Pass
+  to: ChannelSet
+  type: has_many
+  via: channel_set_token
+- from: UnavailabilityWindow
+  to: GroundStation
+  type: belongs_to
+  via: ground_station_id

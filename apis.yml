@@ -1,25 +1,129 @@
 aid: infostellar
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/infostellar.png
 name: Infostellar
-description: Infostellar is a company surfaced as a portfolio company of 500-global and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Infostellar is a Tokyo-based space infrastructure company that operates
+  StellarStation, a cloud ground-station-as-a-service (GSaaS) platform. It
+  aggregates partner and operator antennas into a shared global network so
+  satellite operators can discover and reserve upcoming passes, schedule and
+  cancel plans, manage two-line element (TLE) orbital data, and stream live
+  telemetry and commands to and from their spacecraft. StellarStation exposes
+  a public gRPC API (defined with Protocol Buffers) at api.stellarstation.com,
+  with precompiled client stubs published for Java, Python, Go, and Node.js and
+  authentication handled via JWT bearer service-account credentials issued from
+  the StellarStation Console. The API separates a satellite-operator service
+  (StellarStationService) from a ground-station-operator service
+  (GroundStationService), plus supporting definitions for antennas, radios,
+  orbit, monitoring, and transport.
 url: https://raw.githubusercontent.com/api-evangelist/infostellar/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - 500-global
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: enriched-from-public-api
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- Space
+- Satellite
+- Ground Station
+- Aerospace
+- Telemetry
+- gRPC
+- GSaaS
+- Orbital
+apis:
+- name: StellarStation API
+  description: >-
+    Public gRPC API for the StellarStation ground-station-as-a-service platform.
+    Lets satellite operators list upcoming available passes, reserve and cancel
+    plans, add and retrieve TLE orbital data, set plan metadata, and open a
+    bidirectional stream of satellite telemetry and commands; a companion
+    GroundStationService lets antenna operators manage unavailability windows,
+    list and cancel plans, and open a ground-station stream.
+  humanURL: https://github.com/infostellarinc/stellarstation-api
+  baseURL: https://api.stellarstation.com
+  tags:
+  - Satellite
+  - Ground Station
+  - Telemetry
+  - gRPC
+  properties:
+  - type: Protobuf
+    url: grpc/infostellar-stellarstation.proto
+  - type: Protobuf
+    url: grpc/infostellar-groundstation.proto
+  - type: Authentication
+    url: authentication/infostellar-authentication.yml
+  - type: Conventions
+    url: conventions/infostellar-conventions.yml
+  - type: DataModel
+    url: data-model/infostellar-data-model.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/infostellar-domain-security.yml
 - type: Website
-  url: https://infostellar.net
+  url: https://www.infostellar.net
+- type: DeveloperPortal
+  url: https://github.com/infostellarinc/stellarstation-api
+- type: Documentation
+  url: https://github.com/infostellarinc/stellarstation-api#readme
+- type: APIReference
+  url: https://javadoc.io/doc/com.stellarstation.api/stellarstation-api/
+- type: GitHubOrganization
+  url: https://github.com/infostellarinc
+- type: Product
+  url: https://www.stellarstation.com
+- type: ChangeLog
+  url: https://github.com/infostellarinc/stellarstation-api/releases
+- type: ChangeLog
+  url: changelog/infostellar-changelog.yml
+- type: Lifecycle
+  url: lifecycle/infostellar-lifecycle.yml
+- type: Protobuf
+  url: grpc/infostellar-stellarstation.proto
+- type: Packages
+  url: packages/infostellar-packages.yml
+- type: SDKs
+  url: packages/infostellar-packages.yml
+- type: Authentication
+  url: authentication/infostellar-authentication.yml
+- type: Conformance
+  url: conformance/infostellar-conformance.yml
+- type: Conventions
+  url: conventions/infostellar-conventions.yml
+- type: DataModel
+  url: data-model/infostellar-data-model.yml
+- type: ErrorCatalog
+  url: errors/infostellar-problem-types.yml
+- type: MCPServer
+  url: mcp/infostellar-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/infostellar-llms.txt
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

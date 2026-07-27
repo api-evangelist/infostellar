@@ -1,0 +1,12 @@
+generated: '2026-07-19'
+method: generated
+source: grpc/infostellar-stellarstation.proto
+skills:
+- file: infostellar-schedule-and-stream-pass.md
+  name: Schedule and stream a satellite pass
+  api: grpc/infostellar-stellarstation.proto
+  operations: [ListUpcomingAvailablePasses, ReservePass, ListPlans, OpenSatelliteStream, CancelPlan]
+- file: infostellar-manage-tle-orbital-data.md
+  name: Manage satellite TLE orbital data
+  api: grpc/infostellar-stellarstation.proto
+  operations: [SetTleSource, AddTle, GetTle]

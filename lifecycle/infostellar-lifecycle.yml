@@ -1,0 +1,24 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/infostellarinc/stellarstation-api/releases
+versioning:
+  scheme: semver
+  current: v0.15.0
+  docs: https://github.com/infostellarinc/stellarstation-api#readme
+  policy: >-
+    The API follows semantic versioning; any breaking, backwards-incompatible
+    change is made while increasing the major version. Only tagged releases are
+    supported for direct proto use; non-tagged revisions may break backwards
+    compatibility. SNAPSHOT builds carry no backwards-compatibility guarantee.
+releases_url: https://github.com/infostellarinc/stellarstation-api/releases
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No formal deprecation/sunset policy published beyond the semver major-bump rule.
+sla:
+  url: null
+status_page: null
+deprecated_operations: []
+notes: >-
+  gRPC API; lifecycle tracked via GitHub tagged releases. No public status page
+  or SLA document was found on the developer surface.

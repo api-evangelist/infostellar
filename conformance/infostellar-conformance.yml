@@ -1,0 +1,32 @@
+generated: '2026-07-19'
+method: derived
+source: grpc/infostellar-stellarstation.proto
+standards:
+- id: grpc
+  conforms: true
+  evidence: API is defined as a gRPC service (StellarStationService) over HTTP/2.
+- id: protobuf
+  conforms: true
+  evidence: Messages defined in Protocol Buffers proto3 (package stellarstation.api.v1).
+- id: jwt-bearer
+  conforms: true
+  evidence: Service-account JWT bearer call credentials with audience https://api.stellarstation.com.
+- id: semver
+  conforms: true
+  evidence: >-
+    README states the API follows semantic versioning; breaking changes bump the
+    major version. Tagged releases v0.6.0 through v0.15.0.
+- id: tls
+  conforms: true
+  evidence: gRPC endpoint on api.stellarstation.com:443 over TLS.
+- id: oauth2
+  conforms: false
+  evidence: No OAuth2 authorization-code/client-credentials flow; auth is service-account JWT only.
+- id: oidc
+  conforms: false
+- id: rest
+  conforms: false
+  evidence: gRPC-only; no REST/OpenAPI surface published.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: gRPC status codes are used for errors, not RFC 9457 problem+json.

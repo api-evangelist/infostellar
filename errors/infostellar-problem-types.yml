@@ -1,0 +1,35 @@
+generated: '2026-07-19'
+method: derived
+source: grpc/infostellar-stellarstation.proto
+format: grpc-status
+notes: >-
+  StellarStation is a gRPC API and surfaces errors as standard gRPC status
+  codes rather than HTTP RFC 9457 problem+json. No provider-specific error
+  registry is published; this catalogs the standard gRPC status codes an agent
+  should handle, mapped to the platform's operations (auth, scheduling, TLE).
+envelope: grpc.Status (code + message + details)
+problems:
+- code: UNAUTHENTICATED
+  meaning: Missing, expired, or revoked service-account JWT credentials.
+  action: Re-issue/register call credentials from the StellarStation Console; check key not revoked.
+- code: PERMISSION_DENIED
+  meaning: Caller lacks access to the requested satellite, ground station, or plan.
+  action: Verify the service account is authorized for the resource organization.
+- code: INVALID_ARGUMENT
+  meaning: Malformed request (bad time window, missing satellite_id/plan_id, invalid TLE).
+  action: Validate request fields before retrying.
+- code: NOT_FOUND
+  meaning: Referenced satellite, plan, pass, or ground station does not exist.
+  action: Confirm the id; list available passes/plans first.
+- code: FAILED_PRECONDITION
+  meaning: Operation not valid in the resource's current state (e.g. cancelling a completed plan).
+  action: Re-check plan/pass state (RESERVED/EXECUTING/SUCCEEDED/FAILED/CANCELED) before acting.
+- code: RESOURCE_EXHAUSTED
+  meaning: Quota or capacity limits reached (e.g. no schedulable capacity for a pass).
+  action: Back off and retry later or choose a different pass.
+- code: DEADLINE_EXCEEDED
+  meaning: Request or stream exceeded its deadline.
+  action: Increase deadline / retry idempotent reads; streams are long-lived.
+- code: UNAVAILABLE
+  meaning: Transient server or network unavailability.
+  action: Retry with exponential backoff.

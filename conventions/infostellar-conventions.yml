@@ -1,0 +1,45 @@
+generated: '2026-07-19'
+method: derived
+source: grpc/infostellar-stellarstation.proto
+transport:
+  protocol: grpc
+  encoding: protobuf
+  http_version: HTTP/2
+  endpoint: api.stellarstation.com:443
+  tls: required
+authentication:
+  style: service-account-jwt-bearer
+  audience: https://api.stellarstation.com
+  ref: authentication/infostellar-authentication.yml
+idempotency:
+  supported: false
+  notes: No idempotency-key header/field is documented in the proto or README.
+pagination:
+  style: none
+  notes: >-
+    List rpcs (ListPlans, ListUpcomingAvailablePasses) are bounded by explicit
+    time windows (aos/los / duration) rather than page tokens; no cursor or
+    offset pagination is defined.
+time_windows:
+  representation: google.protobuf.Timestamp
+  notes: Passes/plans are scoped by aos_time, los_time, and max_elevation_time.
+streaming:
+  style: grpc-bidirectional
+  operations:
+    - OpenSatelliteStream
+    - OpenGroundStationStream
+  notes: >-
+    Live telemetry and command exchange happens over long-lived bidirectional
+    gRPC streams; ReceiveTelemetryResponse/ReceiveTelemetryAck carry telemetry
+    with framing metadata. This is the API's event surface (not webhooks).
+metadata:
+  supported: true
+  mechanism: SetPlanMetadata / PlanMetadata (map<string, Metadata>)
+errors:
+  style: grpc-status-codes
+  ref: errors/infostellar-problem-types.yml
+versioning:
+  scheme: semver
+  ref: lifecycle/infostellar-lifecycle.yml
+rate_limits:
+  documented: false

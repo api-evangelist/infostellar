@@ -1,0 +1,32 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/infostellarinc/stellarstation-api#readme
+packages:
+- language: java
+  registry: maven
+  name: com.stellarstation.api:stellarstation-api
+  url: https://central.sonatype.com/artifact/com.stellarstation.api/stellarstation-api
+  install: "implementation 'com.stellarstation.api:stellarstation-api:0.15.0'"
+  official: true
+  notes: Precompiled gRPC client stubs for Java. Also on javadoc.io.
+- language: python
+  registry: pypi
+  name: stellarstation
+  url: https://pypi.org/project/stellarstation/
+  install: pip install --upgrade stellarstation
+  official: true
+  notes: Precompiled gRPC client stubs for Python.
+- language: go
+  registry: go
+  name: github.com/infostellarinc/go-stellarstation/api/v1
+  url: https://pkg.go.dev/github.com/infostellarinc/go-stellarstation
+  install: go get github.com/infostellarinc/go-stellarstation/api/v1
+  official: true
+  notes: Precompiled gRPC client stubs for Go (separate repo).
+- language: javascript
+  registry: npm
+  name: "@infostellarinc/stellarstation-api"
+  url: https://www.npmjs.com/package/@infostellarinc/stellarstation-api
+  install: npm install @infostellarinc/stellarstation-api
+  official: true
+  notes: Precompiled gRPC client stubs for Node.js.
