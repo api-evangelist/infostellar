@@ -6,13 +6,10 @@ server:
   name: infostellar-stellarstation
   transport: stdio
   url: null
-notes: >-
-  No official hosted MCP server was found for StellarStation. This is a
-  candidate tool list derived one-to-one from the gRPC rpc methods of
-  StellarStationService and GroundStationService, for a future MCP wrapper over
-  the gRPC API. Streaming rpcs (OpenSatelliteStream, OpenGroundStationStream)
-  are long-lived bidirectional streams and are noted as non-trivial to model as
-  single MCP tool calls.
+notes: No official hosted MCP server was found for StellarStation. This is a candidate tool list derived
+  one-to-one from the gRPC rpc methods of StellarStationService and GroundStationService, for a future
+  MCP wrapper over the gRPC API. Streaming rpcs (OpenSatelliteStream, OpenGroundStationStream) are long-lived
+  bidirectional streams and are noted as non-trivial to model as single MCP tool calls.
 tools:
 - name: list_plans
   description: List scheduled passes (plans) for a satellite within a time window.
@@ -62,3 +59,9 @@ tools:
 - name: gs_open_ground_station_stream
   description: Open a bidirectional ground-station stream (streaming).
   source_operation: grpc/infostellar-groundstation.proto#OpenGroundStationStream
+deployment:
+  mode: none
+  verified: derived
+  tools: 16
+  checked: '2026-08-12'
+  source: catalog MCP census
