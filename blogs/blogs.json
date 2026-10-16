@@ -1,0 +1,14 @@
+{
+  "repo": "infostellar",
+  "feeds": [
+    {
+      "source": "https://www.infostellar.net/news/",
+      "feed_url": "https://www.infostellar.net/news/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-10-10T13:15:00Z"
+}
