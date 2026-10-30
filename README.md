@@ -64,6 +64,95 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Infostellar is a company surfaced as a portfolio company of 500-global and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Infostellar is a Tokyo-based space infrastructure company that operates StellarStation, a cloud ground-station-as-a-service (GSaaS) platform. It aggregates partner and operator antennas into a shared global network so satellite operators can discover and reserve upcoming passes, schedule and cancel plans, manage two-line element (TLE) orbital data, and stream live telemetry and commands to and from their spacecraft. StellarStation exposes a public gRPC API (defined with Protocol Buffers) at api.stellarstation.com, with precompiled client stubs published for Java, Python, Go, and Node.js and authentication handled via JWT bearer service-account credentials issued from the StellarStation Console. The API separates a satellite-operator service (StellarStationService) from a ground-station-operator service (GroundStationService), plus supporting definitions for antennas, radios, orbit, monitoring, and transport.
 
-Backed by: 500-global — https://infostellar.net
+**Areas:** Company · Space · Satellite · Ground Station · Aerospace · Telemetry · gRPC · GSaaS · Orbital
+
+## Infostellar on APIs.io
+
+Everything profiled for Infostellar is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/infostellar/](https://apis.io/providers/infostellar/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [StellarStation API](https://apis.io/apis/infostellar/stellarstation-api/) — Public gRPC API for the StellarStation ground-station-as-a-service platform. Lets satellite operators list upcoming available passes, reserve and cancel…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [infostellar-stellarstation](https://apis.io/servers/infostellar/infostellar-stellarstation/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Infostellar Authentication](https://apis.io/security/infostellar/infostellar-authentication/)
+- [Infostellar Domain Security](https://apis.io/security/infostellar/infostellar-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.infostellar.net)
+- [Documentation](https://github.com/infostellarinc/stellarstation-api#readme)
+- [API reference](https://javadoc.io/doc/com.stellarstation.api/stellarstation-api/)
+- [Changelog](https://github.com/infostellarinc/stellarstation-api/releases)
+- [Blog](https://www.infostellar.net/news/)
+- [GitHub](https://github.com/infostellarinc)
+
+## API Evangelist rating
+
+**Kin Score 26.4** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 24.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 49.4 |
+| Access clarity | 0.0 |
+
+**Agent readiness 17.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/infostellar/](https://apis.io/providers/infostellar/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Infostellar: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/infostellar/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
